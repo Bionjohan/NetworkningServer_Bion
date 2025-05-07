@@ -1,15 +1,27 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+/* SERVER - may be enhanced to work or multiple clients */
+import java.net.*;
+import java.io.*;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        ServerSocket server = null;
+        Socket client;
+
+        //Standard port nummer vi ska använda
+        int portnummer = 55050;
+        if (args.length >= 1){
+            portnummer = Integer.parseInt(args[0]);
         }
+
+        //Skapa socker för servern
+        try {
+            server = new ServerSocket(portnummer);
+        } catch (IOException ie){
+            System.out.println("Kan inte öppna socket." + ie);
+            System.exit(1);
+        }
+
+        //wait for the 
     }
 }
